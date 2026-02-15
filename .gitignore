@@ -1,0 +1,94 @@
+# ============================================
+# H&M E-commerce Project - .gitignore
+# ============================================
+
+# ===== DATA FILES (NEVER COMMIT LARGE DATA) =====
+# Raw data (CSVs, zips)
+raw_data/*.csv
+raw_data/*.zip
+raw_data/*.parquet
+raw_data/*.json
+
+# Processed data
+processed_data/*.csv
+processed_data/*.parquet
+processed_data/*.json
+
+# Model outputs
+models/*.pkl
+models/*.model
+models/*.joblib
+outputs/*.csv
+outputs/*.parquet
+
+# ===== LOGS & TEMPORARY FILES =====
+logs/*.log
+logs/*.txt
+*.log
+
+# Spark specific
+metastore_db/
+derby.log
+spark-warehouse/
+
+# ===== PYTHON =====
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# ===== SYSTEM FILES =====
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# ===== CREDENTIALS & SECRETS =====
+*.env
+.env.local
+secrets.yaml
+credentials.json
+config/secrets.yaml
+
+# ===== LARGE FILES & CHECKPOINTS =====
+*.h5
+*.hdf5
+*.pkl.gz
+
+# ===== DOCUMENTATION BUILD FILES =====
+docs/_build/
+site/
+
+# ===== KEEP THESE FOLDERS BUT NOT CONTENTS =====
+# We want git to track folder structure, not contents
+!raw_data/.gitkeep
+!processed_data/.gitkeep
+!models/.gitkeep
+!outputs/.gitkeep
+!logs/.gitkeep
