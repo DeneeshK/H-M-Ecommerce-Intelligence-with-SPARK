@@ -1,0 +1,91 @@
+================================================================================
+ H&M E-COMMERCE INTELLIGENCE PROJECT
+ WEEK 1: EXPLORATORY DATA ANALYSIS - EXECUTIVE SUMMARY
+================================================================================
+
+Report Generated: 2026-02-18 17:01:46
+Analyst: Data Engineering Portfolio Project
+Phase: Week 1 of 9 (ETL Extract & EDA)
+
+--------------------------------------------------------------------------------
+DATASET OVERVIEW
+--------------------------------------------------------------------------------
+Total Transactions       : 31,788,324
+Unique Customers         : 1,371,980
+Unique Products          : 105,542
+Date Range               : 2018-09-20 to 2020-09-22 (733 days)
+Raw Data Size            : 3.5GB
+Processing Engine        : Apache Spark 3.5.0
+
+--------------------------------------------------------------------------------
+KEY BUSINESS INSIGHTS
+--------------------------------------------------------------------------------
+1. Online Shopping Dominance   : 70.4% of transactions via online channel
+2. Peak Activity Day           : Saturday drives highest volume
+3. Revenue Driver              : Garment Upper Body = 40% of revenue
+4. Customer Loyalty            : 92.7% are active club members
+5. Value Concentration         : Top 20% customers generate majority revenue
+6. Retention Opportunity       : Significant one-time buyer population
+7. Product Hits                : Jade Skinny Jeans dominate (3 variants in top 20)
+8. Seasonality                 : Clear monthly purchase patterns detected
+9. Color Preference            : Black & White dominate catalog
+10. Repurchase Behavior        : Median purchase interval guides timing models
+
+--------------------------------------------------------------------------------
+DATA QUALITY STATUS
+--------------------------------------------------------------------------------
+EXCELLENT:
+  - Transactions: 0% missing values
+  - Referential Integrity: 100% (all FKs valid)
+  - Articles: 0.39% missing (negligible)
+
+ACTION REQUIRED:
+  - Drop FN & Active columns (>65% null)
+  - Impute age (1.16% missing)
+  - Impute club_status (0.44% missing)
+  - Impute fashion_news_frequency (1.17% missing)
+
+--------------------------------------------------------------------------------
+MACHINE LEARNING ROADMAP
+--------------------------------------------------------------------------------
+Priority 1: Recommendation System (Week 4)
+  - Target: Top 12 products per customer
+  - Method: ALS + Content-Based + Hybrid
+  - Metric: MAP@12
+
+Priority 2: Churn Prediction (Week 5)
+  - Target: Will customer buy in next 90 days?
+  - Method: Gradient Boosted Trees
+  - Metric: AUC-ROC
+
+Priority 3: Next-Purchase Timing (Week 6)
+  - Target: Days until next purchase
+  - Method: Random Forest Regressor
+  - Metric: MAE (days)
+
+Priority 4: Customer Segmentation (Week 7)
+  - Target: 6-8 distinct segments
+  - Method: RFM + K-Means
+  - Metric: Silhouette Score + Business Value
+
+--------------------------------------------------------------------------------
+DELIVERABLES GENERATED
+--------------------------------------------------------------------------------
+Python Modules           : 3 (spark_config, extract, validate_data)
+Jupyter Notebooks        : 1 (01_EDA.ipynb)
+Visualizations           : 20 charts (300 DPI PNG)
+Documentation            : README, DATA_DICTIONARY, This Report
+Output Location          : EDA / outputs/
+
+--------------------------------------------------------------------------------
+NEXT STEPS (WEEK 2-3)
+--------------------------------------------------------------------------------
+1. Feature Engineering: Create 50+ features from raw data
+2. Data Cleaning: Handle missing values, outliers
+3. Data Transformation: Encoding, scaling, binning
+4. Partitioning: Optimize for ML pipeline
+5. Save to Parquet: Fast loading for training
+
+================================================================================
+WEEK 1 STATUS:  COMPLETE
+================================================================================
