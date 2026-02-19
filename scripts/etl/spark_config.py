@@ -51,7 +51,7 @@ def get_spark_session(app_name="HM_Ecommerce_ETL"):
         .config("spark.sql.adaptive.coalescePartitions.enabled", "true") \
         .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer") \
         .config("spark.sql.execution.arrow.pyspark.enabled", "false") \
-        .config("spark.driver.maxResultSize", "3g") \
+        .config("spark.driver.maxResultSize", "4g") \
         .getOrCreate()
     
     # Set log level to reduce noise (change to INFO for debugging)
