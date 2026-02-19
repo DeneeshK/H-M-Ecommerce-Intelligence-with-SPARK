@@ -10,6 +10,7 @@ raw_data/*.parquet
 raw_data/*.json
 
 # Processed data
+processed_data
 processed_data/*.csv
 processed_data/*.parquet
 processed_data/*.json
