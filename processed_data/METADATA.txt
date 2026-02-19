@@ -1,0 +1,50 @@
+================================================================================
+FEATURE STORE METADATA
+================================================================================
+
+Creation Date: 2026-02-18T22:21:22.030768
+Total Customers: 1,362,281
+Total Features: 40
+
+Features:
+--------------------------------------------------------------------------------
+  1. customer_id
+  2. last_purchase_date
+  3. first_purchase_date
+  4. total_purchases
+  5. unique_shopping_days
+  6. unique_products_bought
+  7. total_spend
+  8. avg_order_value
+  9. max_single_purchase
+ 10. min_single_purchase
+ 11. price_std_dev
+ 12. days_since_last_purchase
+ 13. days_since_first_purchase
+ 14. customer_tenure_days
+ 15. purchases_per_day
+ 16. spend_per_purchase
+ 17. products_per_purchase
+ 18. preferred_category
+ 19. preferred_category_count
+ 20. preferred_color
+ 21. preferred_color_count
+ 22. store_purchases
+ 23. online_purchases
+ 24. total_channel_purchases
+ 25. online_preference_ratio
+ 26. unique_categories
+ 27. unique_colors
+ 28. unique_garment_groups
+ 29. weekend_purchases
+ 30. last_purchase_month
+ 31. weekend_purchase_ratio
+ 32. avg_days_between_purchases
+ 33. min_days_between_purchases
+ 34. max_days_between_purchases
+ 35. std_days_between_purchases
+ 36. is_churned
+ 37. churn_risk_level
+ 38. age
+ 39. club_member_status
+ 40. fashion_news_frequency
