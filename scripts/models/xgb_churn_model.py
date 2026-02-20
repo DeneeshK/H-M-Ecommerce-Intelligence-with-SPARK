@@ -67,13 +67,11 @@ def train_churn_model(spark, data_path):
     )
 
     xgb = SparkXGBClassifier(
-        label_col="is_churned",
-        features_col="features",
-        objective="binary:logistic",
-        eval_metric="auc",
-        num_workers=6,
-        seed=42,
-        missing=0.0
+    label_col="is_churned",
+    features_col="features",
+    num_workers=6,
+    seed=42,
+    missing=0.0
     )
 
     pipeline = Pipeline(stages=indexers + [encoder, assembler, xgb])

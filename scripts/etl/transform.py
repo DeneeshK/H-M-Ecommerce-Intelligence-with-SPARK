@@ -43,7 +43,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
     from scripts.etl.load import FeatureStoreLoader
     
     logger.info("="*80)
-    logger.info("🚀 CHURN MODEL - COMPLETE ETL PIPELINE")
+    logger.info(" CHURN MODEL - COMPLETE ETL PIPELINE")
     logger.info("="*80)
     logger.info(f"Start Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info(f"Version: {version}")
@@ -55,7 +55,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # ══════════════════════════════════════════════════════════
         # STEP 1: EXTRACT
         # ══════════════════════════════════════════════════════════
-        logger.info("\n📥 STEP 1/5: EXTRACT RAW DATA")
+        logger.info("\n STEP 1/5: EXTRACT RAW DATA")
         logger.info("="*80)
         
         extractor = DataExtractor(spark, PATHS["raw_data"])
@@ -64,7 +64,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # ══════════════════════════════════════════════════════════
         # STEP 2: FEATURE ENGINEERING
         # ══════════════════════════════════════════════════════════
-        logger.info("\n🛠️  STEP 2/5: ENGINEER FEATURES (TEMPORAL-SAFE)")
+        logger.info("\n  STEP 2/5: ENGINEER FEATURES (TEMPORAL-SAFE)")
         logger.info("="*80)
         
         engineer = ChurnFeatureEngineer(
@@ -77,7 +77,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # ══════════════════════════════════════════════════════════
         # STEP 3: CLEAN DATA
         # ══════════════════════════════════════════════════════════
-        logger.info("\n🧹 STEP 3/5: CLEAN DATA")
+        logger.info("\n STEP 3/5: CLEAN DATA")
         logger.info("="*80)
         
         cleaner = DataCleaner(spark)
@@ -86,7 +86,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # ══════════════════════════════════════════════════════════
         # STEP 4: SPLIT DATA
         # ══════════════════════════════════════════════════════════
-        logger.info("\n✂️  STEP 4/5: SPLIT TRAIN/VAL/TEST")
+        logger.info("\n  STEP 4/5: SPLIT TRAIN/VAL/TEST")
         logger.info("="*80)
         
         train, val, test = cleaner.create_train_val_test_split(
@@ -98,7 +98,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # ══════════════════════════════════════════════════════════
         # STEP 5: SAVE TO PARQUET
         # ══════════════════════════════════════════════════════════
-        logger.info("\n💾 STEP 5/5: SAVE TO FEATURE STORE")
+        logger.info("\n STEP 5/5: SAVE TO FEATURE STORE")
         logger.info("="*80)
         
         loader = FeatureStoreLoader(spark, PATHS["processed_data"])
@@ -108,15 +108,15 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         # PIPELINE COMPLETE
         # ══════════════════════════════════════════════════════════
         logger.info("\n" + "="*80)
-        logger.info("🎉 CHURN PIPELINE COMPLETE!")
+        logger.info(" CHURN PIPELINE COMPLETE!")
         logger.info("="*80)
         logger.info(f"End Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        logger.info(f"\n📊 SUMMARY:")
+        logger.info(f"\n SUMMARY:")
         logger.info(f"   Train:      {train.count():,} customers")
         logger.info(f"   Validation: {val.count():,} customers")
         logger.info(f"   Test:       {test.count():,} customers")
         logger.info(f"   Features:   {len(clean_features.columns)}")
-        logger.info(f"\n📁 OUTPUT:")
+        logger.info(f"\n OUTPUT:")
         logger.info(f"   {paths['train_path']}")
         logger.info(f"   {paths['val_path']}")
         logger.info(f"   {paths['test_path']}")
@@ -125,7 +125,7 @@ def run_churn_pipeline(spark_session_name="Churn_Pipeline", version="v1"):
         return paths
         
     except Exception as e:
-        logger.error(f"\n❌ Pipeline failed: {str(e)}")
+        logger.error(f"\n Pipeline failed: {str(e)}")
         import traceback
         traceback.print_exc()
         raise

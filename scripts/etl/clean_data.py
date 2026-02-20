@@ -55,7 +55,7 @@ class DataCleaner:
         # ══════════════════════════════════════════════════════════
         # 1. IMPUTE AGE
         # ══════════════════════════════════════════════════════════
-        logger.info("\n1️⃣ Imputing missing age...")
+        logger.info("\n1 Imputing missing age...")
         
         age_null_before = df.filter(col("age").isNull()).count()
         logger.info(f"   Age nulls before: {age_null_before:,}")
@@ -86,7 +86,7 @@ class DataCleaner:
         # ══════════════════════════════════════════════════════════
         # 2. IMPUTE CLUB_MEMBER_STATUS
         # ══════════════════════════════════════════════════════════
-        logger.info("\n2️⃣ Imputing club_member_status...")
+        logger.info("\n2 Imputing club_member_status...")
         
         df = df.withColumn(
             "club_member_status",
@@ -97,7 +97,7 @@ class DataCleaner:
         # ══════════════════════════════════════════════════════════
         # 3. IMPUTE FASHION_NEWS_FREQUENCY
         # ══════════════════════════════════════════════════════════
-        logger.info("\n3️⃣ Imputing fashion_news_frequency...")
+        logger.info("\n3 Imputing fashion_news_frequency...")
         
         df = df.withColumn(
             "fashion_news_frequency",
@@ -108,7 +108,7 @@ class DataCleaner:
         # ══════════════════════════════════════════════════════════
         # 4. DROP ROWS WITH CRITICAL NULLS
         # ══════════════════════════════════════════════════════════
-        logger.info("\n4️⃣ Dropping rows with critical nulls...")
+        logger.info("\n4 Dropping rows with critical nulls...")
         
         critical_cols = [
             "customer_id",
@@ -126,7 +126,7 @@ class DataCleaner:
         final_count = df.count()
         dropped = initial_count - final_count
         
-        logger.info(f"\n✅ Cleaning complete:")
+        logger.info(f"\n Cleaning complete:")
         logger.info(f"   Initial rows: {initial_count:,}")
         logger.info(f"   Final rows:   {final_count:,}")
         logger.info(f"   Dropped:      {dropped:,} ({dropped/initial_count*100:.2f}%)")
@@ -215,10 +215,10 @@ def main():
         # Split
         train, val, test = cleaner.create_train_val_test_split(clean_features)
         
-        print("\n✅ Cleaning test complete!")
+        print("\n Cleaning test complete!")
         
     except Exception as e:
-        print(f"\n❌ Error: {str(e)}")
+        print(f"\n Error: {str(e)}")
         import traceback
         traceback.print_exc()
     
