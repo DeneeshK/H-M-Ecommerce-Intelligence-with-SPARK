@@ -65,7 +65,7 @@ class ChurnFeatureEngineer:
         logger.info(f"   Training Period End:    {train_end_date}")
         logger.info(f"   Prediction Window:      {prediction_window_days} days")
         logger.info(f"   Prediction Period End:  {self.prediction_end_date}")
-        logger.info(f"   ✅ Full 90-day window available for churn labeling")
+        logger.info(f"   Full 90-day window available for churn labeling")
         logger.info("="*80)
     
     
@@ -166,7 +166,7 @@ class ChurnFeatureEngineer:
             stddev("days_between").alias("std_days_between_purchases")
         )
         
-        logger.info(f"   ✅ Interval features for {interval_features.count():,} customers")
+        logger.info(f"  Interval features for {interval_features.count():,} customers")
         
         # ══════════════════════════════════════════════════════════
         # STEP 4: BEHAVIORAL FEATURES (Training only)
@@ -190,7 +190,7 @@ class ChurnFeatureEngineer:
             spark_avg("is_weekend").alias("weekend_ratio")
         )
         
-        logger.info(f"   ✅ Behavioral features calculated")
+        logger.info(f" Behavioral features calculated")
         
         # ══════════════════════════════════════════════════════════
         # STEP 5: CREATE CHURN LABELS (Prediction period)

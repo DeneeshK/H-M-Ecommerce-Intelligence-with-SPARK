@@ -42,24 +42,24 @@ class FeatureStoreLoader:
         
         # Save train
         train_path = f"{self.output_path}/churn_train_{version}"
-        logger.info(f"\n📁 Saving training set...")
+        logger.info(f"\n Saving training set...")
         train_df.write.mode("overwrite").parquet(train_path)
-        logger.info(f"   ✅ {train_df.count():,} rows → {train_path}")
+        logger.info(f" {train_df.count():,} rows → {train_path}")
         
         # Save validation
         val_path = f"{self.output_path}/churn_val_{version}"
-        logger.info(f"\n📁 Saving validation set...")
+        logger.info(f"\n Saving validation set...")
         val_df.write.mode("overwrite").parquet(val_path)
-        logger.info(f"   ✅ {val_df.count():,} rows → {val_path}")
+        logger.info(f" {val_df.count():,} rows → {val_path}")
         
         # Save test
         test_path = f"{self.output_path}/churn_test_{version}"
-        logger.info(f"\n📁 Saving test set...")
+        logger.info(f"\n Saving test set...")
         test_df.write.mode("overwrite").parquet(test_path)
-        logger.info(f"   ✅ {test_df.count():,} rows → {test_path}")
+        logger.info(f"    {test_df.count():,} rows → {test_path}")
         
         logger.info("\n" + "="*80)
-        logger.info("✅ ALL FEATURE SETS SAVED")
+        logger.info(" ALL FEATURE SETS SAVED")
         logger.info("="*80)
         
         return {
@@ -99,10 +99,10 @@ def main():
         loader = FeatureStoreLoader(spark, PATHS["processed_data"])
         paths = loader.save_churn_features(train, val, test, version="v1")
         
-        print("\n✅ Load test complete!")
+        print("\n Load test complete!")
         
     except Exception as e:
-        print(f"\n❌ Error: {str(e)}")
+        print(f"\n Error: {str(e)}")
         import traceback
         traceback.print_exc()
     

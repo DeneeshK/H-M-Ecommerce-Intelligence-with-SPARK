@@ -247,19 +247,19 @@ class DataExtractor:
         - Catch issues early (wrong types, missing columns)
         """
         
-        print("📋 DATASET SCHEMAS")
+        print(" DATASET SCHEMAS")
        
         
         if self.articles_df:
-            print("\n🔸 ARTICLES SCHEMA:")
+            print("\n ARTICLES SCHEMA:")
             self.articles_df.printSchema()
         
         if self.customers_df:
-            print("\n🔸 CUSTOMERS SCHEMA:")
+            print("\n CUSTOMERS SCHEMA:")
             self.customers_df.printSchema()
         
         if self.transactions_df:
-            print("\n🔸 TRANSACTIONS SCHEMA:")
+            print("\n TRANSACTIONS SCHEMA:")
             self.transactions_df.printSchema()
 
 

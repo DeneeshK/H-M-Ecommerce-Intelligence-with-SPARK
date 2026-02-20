@@ -142,5 +142,5 @@ if __name__ == "__main__":
     paths = run_churn_pipeline(version="v1")
     
     print("\n" + "="*80)
-    print("✅ READY FOR MODEL TRAINING")
+    print(" READY FOR MODEL TRAINING")
     print("="*80)

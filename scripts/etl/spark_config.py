@@ -33,7 +33,7 @@ def get_spark_session(app_name="HM_Ecommerce_ETL"):
     
     # Auto-detect available CPU cores
     num_cores = multiprocessing.cpu_count()
-    print(f"🔧 Detected {num_cores} CPU cores")
+    print(f" Detected {num_cores} CPU cores")
     
     # Calculate optimal partition count (2x cores is good for mixed workloads)
     default_parallelism = num_cores * 2

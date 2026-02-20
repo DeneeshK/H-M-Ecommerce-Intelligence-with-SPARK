@@ -52,9 +52,9 @@ class DataCleaner:
         df = features_df
         initial_count = df.count()
         
-        # ══════════════════════════════════════════════════════════
+        
         # 1. IMPUTE AGE
-        # ══════════════════════════════════════════════════════════
+    
         logger.info("\n1 Imputing missing age...")
         
         age_null_before = df.filter(col("age").isNull()).count()
@@ -83,9 +83,9 @@ class DataCleaner:
         age_null_after = df.filter(col("age").isNull()).count()
         logger.info(f"   Age nulls after: {age_null_after:,}")
         
-        # ══════════════════════════════════════════════════════════
+        
         # 2. IMPUTE CLUB_MEMBER_STATUS
-        # ══════════════════════════════════════════════════════════
+        
         logger.info("\n2 Imputing club_member_status...")
         
         df = df.withColumn(
@@ -94,9 +94,9 @@ class DataCleaner:
             .otherwise(col("club_member_status"))
         )
         
-        # ══════════════════════════════════════════════════════════
+        
         # 3. IMPUTE FASHION_NEWS_FREQUENCY
-        # ══════════════════════════════════════════════════════════
+        
         logger.info("\n3 Imputing fashion_news_frequency...")
         
         df = df.withColumn(
@@ -105,9 +105,9 @@ class DataCleaner:
             .otherwise(col("fashion_news_frequency"))
         )
         
-        # ══════════════════════════════════════════════════════════
+       
         # 4. DROP ROWS WITH CRITICAL NULLS
-        # ══════════════════════════════════════════════════════════
+        
         logger.info("\n4 Dropping rows with critical nulls...")
         
         critical_cols = [
